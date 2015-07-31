@@ -1,0 +1,120 @@
+*wibafoco.txt*          For Vim version 7.4
+                                                                *wibafoco*
+                              Wibafoco plugin
+
+Wibafoco stands for "window WIdth BAsed FOld COlumn".
+
+This Vim plugin performs automatic updates of the 'foldcolumn' option in every
+Vim window, based on the window width. By default, it sets the 'foldcolumn'
+option to 0 when the window width is lower than or equal to 80 characters.
+Otherwise, it sets the 'foldcolumn' to 1.
+
+If the window width is changed during editing, the 'foldcolumn' option update
+is done, eventually with a delay. This delay is the 'updatetime' duration.
+
+The parameters (foldcolumn values, window width threshold) can be changed. See
+|wibafoco-tuning|.
+
+The author has written this plugin because he uses Vim with either the
+classical 80 characters window width (and in this case, having the
+'foldcolumn' set to a non zero value causes the text width to be shorter than
+80 characters) or a 163 characters window width which allow the editing of two
+files side by side (see |vsplit|) with a foldcolumn value of 1 in each window
+and an actual text width of 80 characters.
+
+1. Installation                 |wibafoco-install|
+2. Disabling the plugin         |wibafoco-disabling|
+3. Tuning the parameters        |wibafoco-tuning|
+4. Mapping, menu, command       |wibafoco-mapping|
+5. Credits and licensing        |wibafoco-credits|
+
+==============================================================================
+1. Installation                                         *wibafoco-install*
+
+The Wibafoco plugin comes with the following directory tree:
+
+wibafoco
+        doc
+        plugin
+
+If you use Pathogen (a popular Vim plugin to manage Vim plugins), you just
+have to place the whole tree in your bundle directory (on a Linux system, it
+is probably ~/.vim/bundle). If you have Git installed and an internet access,
+just issue this command in a terminal after moving to your bundle directory:
+
+git clone git://github.com/thierr26/wibafoco.git
+
+Make sure that Pathogen is enabled in your |vimrc| file with the following
+commands: >
+
+        call pathogen#infect()
+        call pathogen#helptags()
+<
+
+The author hasn't tested the other popular Vim plugin managers, but it should
+be possible to do the installation in a similar way when using those plugins.
+
+If you don't use a plugin manager, you have to manually copy the files. On a
+Linux system, the file in wibafoco/doc must be copied to ~/.vim/doc, and the
+file in wibafoco/plugin must be copied to ~/.vim/plugin.
+
+==============================================================================
+2. Disabling the plugin                                 *wibafoco-disabling*
+
+                                        *loaded_wibafoco* *g:loaded_wibafoco*
+You can completely disable the Wibafoco plugin without uninstalling it by
+adding this line to your |vimrc| file: >
+
+        let g:loaded_wibafoco = 1
+<
+
+==============================================================================
+3. Tuning the parameters                                *wibafoco-tuning*
+
+You can force the parameters you like by adding a statement like the following
+in your |vimrc| file: >
+
+        let g:wibafoco_strategy = {
+                    \ 'win_width_threshold': 80,
+                    \ 'narrow_win_fdc': 0,
+                    \ 'wide_win_fdc': 2,
+                    \ }
+<
+
+This statement will cause a behaviour similar to the default one except that
+the 'foldcolumn' option will be set to 2 when the window width is greater than
+80 characters.
+
+==============================================================================
+4. Mapping, menu, command                               *wibafoco-mapping*
+
+The operation of the plugin is fully automatic, but some means of triggering
+the update of the 'foldcolumn' option are provided.
+
+----------------------------------------------
+4.1. Key mapping
+
+The default key mapping is <Leader>fdc
+
+You can change this mapping (say to <Leader>ZZ) by adding the following line
+to your |vimrc| file: >
+
+        map <Leader>ZZ <Plug>WibafocoWindoSetFoldcolumn
+<
+
+----------------------------------------------
+4.2. Menu
+
+A command is available in the Plugin | Wibafoco menu.
+
+----------------------------------------------
+4.3. Command
+                                                        *:Fdc*
+You can trigger the update of the 'foldcolumn' option with the command :Fdc
+
+==============================================================================
+5. Credits and licensing                                *wibafoco-credits*
+
+Author: Thierry Rascle (thierr26@free.fr)
+
+Licensed under the Unlicense license (see http://unlicense.org).
