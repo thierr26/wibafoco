@@ -1,6 +1,6 @@
                               Wibafoco plugin
 
-Wibafoco stands for "window WIdth BAsed FOld COlumn".
+Wibafoco stands for "window WIdth BAsed FOldCOlumn".
 
 This Vim plugin performs automatic updates of the 'foldcolumn' option in every
 Vim window, based on the window width. By default, it sets the 'foldcolumn'
