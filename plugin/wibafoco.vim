@@ -275,7 +275,7 @@ function s:WindoSetFoldcolumn()
         " Come back to the window which was the current window when the
         " function has been called (the windo iteration mechanism always makes
         " the last window the current one).
-        exe l:cur_win. "wincmd w"
+        execute l:cur_win. "wincmd w"
 
     catch
         " Nothing particular is done if an error occurs in the try section. An
