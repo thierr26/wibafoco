@@ -11,13 +11,13 @@ If the window width is changed during editing, the 'foldcolumn' option update
 is done, eventually with a delay. This delay is the 'updatetime' duration.
 
 The parameters (foldcolumn values, window width threshold) can be changed. See
-wibafoco-tuning.
+the "Tuning the parameters" section.
 
 The author has written this plugin because he uses Vim with either the
 classical 80 characters window width (and in this case, having the
 'foldcolumn' set to a non zero value causes the text width to be shorter than
 80 characters) or a 163 characters window width which allow the editing of two
-files side by side (see vsplit) with a foldcolumn value of 1 in each window
+files side by side with a foldcolumn value of 1 in each window
 and an actual text width of 80 characters.
 
 1. Installation
