@@ -69,7 +69,7 @@ adding this line to your vimrc file:
 3. Tuning the parameters
 
 You can force the parameters you like by adding a statement like the following
-in your vimrc file 
+in your vimrc file:
 
         let g:wibafoco_strategy = {
                     \ 'win_width_threshold': 80,
