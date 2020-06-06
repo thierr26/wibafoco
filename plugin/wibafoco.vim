@@ -24,7 +24,7 @@ if exists("g:loaded_" . s:script)
 endif
 let g:loaded_{s:script} = 1
 
-" Store the value of cpoptions (abbreviated has cpo).
+" Store the value of cpoptions.
 let s:save_cpo = &cpo
 
 " Compute the common prefix for all the plugin related variables, including a
